@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZENTRA - Investor Pitch Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://api.fontshare.com/v2/css?f[]=satoshi@700,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+        :root {
+            --pink: #FF00B8;
+            --cyan: #00F6FF;
+            --green: #00FF9D;
+            --near-black: #1B1B1E;
+            --off-white: #F5F5F5;
+            --font-satoshi: 'Satoshi', sans-serif;
+            --font-inter: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--near-black);
+            color: var(--off-white);
+            font-family: var(--font-inter);
+            overflow: hidden;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100vh;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 4rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+            background-color: var(--near-black);
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+            z-index: 10;
+        }
+        
+        .slide-content {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .nav-arrow:hover {
+            background-color: var(--pink);
+            border-color: var(--pink);
+        }
+        #prev-slide { left: 20px; }
+        #next-slide { right: 20px; }
+        
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--pink), var(--cyan));
+            transition: width 0.3s ease;
+            z-index: 20;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .active .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-800 { animation-delay: 0.8s; }
+
+        .animated-stat .stat-number {
+            transition: all 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide Navigation -->
+    <button id="prev-slide" class="nav-arrow">&lt;</button>
+    <button id="next-slide" class="nav-arrow">&gt;</button>
+    <div id="progress-bar" class="progress-bar"></div>
+
+    <!-- Slide 1: Title -->
+    <section class="slide active">
+        <div class="text-center">
+            <svg width="250" height="64" viewBox="0 0 250 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 fade-in-up">
+              <text x="80" y="42" font-family="Satoshi, sans-serif" font-size="40" font-weight="bold" fill="#F5F5F5">ZENTRA</text>
+              <defs><linearGradient id="g" x1="55" y1="5" x2="27" y2="71" gradientUnits="userSpaceOnUse"><stop stop-color="#00F6FF"/><stop offset="1" stop-color="#00FF9D"/></linearGradient></defs>
+              <path d="M54.33 5.04C38.73 6.24 24.83 16.34 19.13 30.64C13.43 44.94 16.53 61.04 27.33 70.94" stroke="url(#g)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" transform="scale(0.8) translate(0, -10)"/>
+              <path d="M30 38L42 50L64 28" stroke="#FF00B8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" transform="scale(0.8) translate(0, -10)"/>
+            </svg>
+            <h1 class="text-6xl md:text-8xl font-black font-satoshi fade-in-up delay-200" style="color: var(--pink);">BOOKED BEFORE YOU BLINK.</h1>
+            <p class="mt-4 text-xl text-gray-400 fade-in-up delay-400">An Investor Presentation</p>
+        </div>
+    </section>
+
+    <!-- Slide 2: Problem -->
+    <section class="slide">
+        <div class="slide-content text-center">
+            <p class="text-xl font-bold fade-in-up" style="color: var(--cyan);">THE PROBLEM</p>
+            <h2 class="mt-4 text-5xl md:text-7xl font-black font-satoshi fade-in-up delay-200">The £11 Billion <br/>Admin Trap.</h2>
+            <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-300 fade-in-up delay-400">
+                UK small businesses lose over **£11 Billion** a year on administrative tasks. For service professionals, this means less time with clients and more time managing a chaotic schedule.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Slide 3: Solution -->
+    <section class="slide">
+         <div class="slide-content text-center">
+            <p class="text-xl font-bold fade-in-up" style="color: var(--cyan);">THE SOLUTION</p>
+            <h2 class="mt-4 text-5xl md:text-7xl font-black font-satoshi fade-in-up delay-200">Your Calendar, on Autopilot.</h2>
+             <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-300 fade-in-up delay-400">
+                ZENTRA is a smart AI assistant that handles all client communication to fill your schedule automatically, turning conversations into clients, 24/7.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Slide 4: Why Now? (ANIMATED STATS SLIDE) -->
+    <section class="slide">
+        <div class="slide-content text-center">
+            <p class="text-xl font-bold fade-in-up" style="color: var(--cyan);">WHY NOW?</p>
+            <h2 class="mt-4 text-5xl md:text-7xl font-black font-satoshi fade-in-up delay-200">A Perfect Storm of Opportunity.</h2>
+            <div class="mt-12 grid md:grid-cols-3 gap-8 text-center fade-in-up delay-400">
+                <div class="animated-stat">
+                    <p class="text-7xl font-bold font-satoshi" style="color: var(--green);"><span class="stat-number" data-target="72">0</span>%</p>
+                    <p class="mt-2 font-bold">of SMEs now use social media to find new customers.</p>
+                </div>
+                <div class="animated-stat">
+                    <p class="text-7xl font-bold font-satoshi" style="color: var(--cyan);"><span class="stat-number" data-target="59">0</span>%</p>
+                    <p class="mt-2 font-bold">of small businesses plan to increase tech spending this year.</p>
+                </div>
+                <div class="animated-stat">
+                    <p class="text-7xl font-bold font-satoshi" style="color: var(--pink);"><span class="stat-number" data-target="66">0</span>%</p>
+                    <p class="mt-2 font-bold">say AI has already had a significant impact on their organization.</p>
+                </div>
+            </div>
+            <p class="mt-8 text-lg text-gray-400 fade-in-up delay-600">The market is actively seeking AI-powered, social-first automation tools. ZENTRA is the right product at the right time.</p>
+        </div>
+    </section>
+
+    <!-- Slide 5: Product / Demo -->
+    <section class="slide">
+        <div class="slide-content grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-left fade-in-up">
+                <p class="text-xl font-bold" style="color: var(--cyan);">THE PRODUCT</p>
+                <h2 class="mt-4 text-5xl md:text-6xl font-black font-satoshi">See ZENTRA in Action.</h2>
+                <p class="mt-6 text-lg text-gray-300">
+                    ZENTRA is a fully-functional platform designed for speed and simplicity. We believe in showing, not just telling.
+                </p>
+                <button class="mt-8 px-8 py-4 bg-zentra-pink text-white font-bold rounded-md hover:scale-105 transition-transform">
+                    Watch the 60s Demo
+                </button>
+            </div>
+            <div class="fade-in-up delay-200">
+                 <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 shadow-2xl">
+                    <img src="https://i.imgur.com/ED3B48D5.jpg" alt="Zentra UI Mockup" class="rounded-lg" />
+                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Slide 6: Business Model -->
+    <section class="slide">
+        <div class="slide-content text-center">
+            <p class="text-xl font-bold fade-in-up" style="color: var(--cyan);">BUSINESS MODEL</p>
+            <h2 class="mt-4 text-5xl md:text-7xl font-black font-satoshi fade-in-up delay-200">Simple, Transparent Pricing.</h2>
+            <div class="mt-12 grid md:grid-cols-3 gap-8 text-left fade-in-up delay-400">
+                <div class="p-8 bg-gray-800/50 border border-gray-700 rounded-lg">
+                    <h3 class="font-bold text-2xl font-satoshi">SOLO</h3>
+                    <p class="text-4xl font-bold font-satoshi my-4">£29<span class="text-lg text-gray-400">/mo</span></p>
+                    <ul class="text-sm text-gray-300 space-y-2">
+                        <li>✓ 1 User Seat</li>
+                        <li>✓ 150 AI Conversations</li>
+                        <li>✓ Calendar Sync</li>
+                    </ul>
+                </div>
+                <div class="p-8 rounded-lg border-2" style="border-color: var(--pink);">
+                    <h3 class="font-bold text-2xl font-satoshi">PRO</h3>
+                    <p class="text-4xl font-bold font-satoshi my-4">£79<span class="text-lg text-gray-400">/mo</span></p>
+                    <ul class="text-sm text-gray-300 space-y-2">
+                        <li>✓ 3 User Seats</li>
+                        <li>✓ 500 AI Conversations</li>
+                        <li>✓ Analytics Dashboard</li>
+                        <li>✓ Priority Support</li>
+                    </ul>
+                </div>
+                <div class="p-8 bg-gray-800/50 border border-gray-700 rounded-lg">
+                    <h3 class="font-bold text-2xl font-satoshi">TEAMS</h3>
+                    <p class="text-4xl font-bold font-satoshi my-4">£149+<span class="text-lg text-gray-400">/mo</span></p>
+                    <ul class="text-sm text-gray-300 space-y-2">
+                        <li>✓ 5+ User Seats</li>
+                        <li>✓ Unlimited Conversations</li>
+                        <li>✓ Advanced Analytics</li>
+                        <li>✓ Dedicated Account Manager</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: Market Size -->
+    <section class="slide">
+        <div class="slide-content text-center">
+            <p class="text-xl font-bold fade-in-up" style="color: var(--cyan);">THE OPPORTUNITY</p>
+            <h2 class="mt-4 text-5xl md:text-7xl font-black font-satoshi fade-in-up delay-200">A Massive, Underserved Market.</h2>
+            <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-300 fade-in-up delay-400">
+                Our initial focus is the vibrant UK market of local service businesses actively seeking a competitive edge.
+            </p>
+            <div class="mt-12 grid md:grid-cols-3 gap-8 text-center fade-in-up delay-600">
+                <div class="animated-stat">
+                    <p class="text-7xl font-bold font-satoshi" style="color: var(--green);"><span class="stat-number" data-target="77">0</span>K+</p>
+                    <p class="mt-2 font-bold">Salons, Clinics & Trainers in the UK (TAM)</p>
+                </div>
+                <div class="animated-stat">
+                    <p class="text-7xl font-bold font-satoshi" style="color: var(--cyan);">£<span class="stat-number" data-target="20">0</span>M</p>
+                    <p class="mt-2 font-bold">Annual Market for Social Media-Active Businesses (SAM)</p>
+                </div>
+                <div class="animated-stat">
+                    <p class="text-7xl font-bold font-satoshi" style="color: var(--pink);">£<span class="stat-number" data-target="200">0</span>K</p>
+                    <p class="mt-2 font-bold">Initial Annual Revenue Target (SOM - 1% of SAM)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Slide 8: The Team -->
+    <section class="slide">
+        <div class="slide-content text-center">
+             <p class="text-xl font-bold fade-in-up" style="color: var(--cyan);">THE TEAM</p>
+             <h2 class="mt-4 text-5xl md:text-7xl font-black font-satoshi fade-in-up delay-200">Led by a Founder Who<br/>Understands the Problem.</h2>
+             <div class="mt-8 inline-block fade-in-up delay-400">
+                <img src="https://placehold.co/150x150/1B1B1E/F5F5F5?text=You" alt="Founder headshot" class="rounded-full mx-auto" />
+                <h3 class="mt-4 text-2xl font-bold font-satoshi">Max Edwards</h3>
+                <p class="text-lg text-gray-400">Founder</p>
+             </div>
+             <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-300 fade-in-up delay-600">
+                A passionate builder with a unique blend of technical skill and market insight. Frustrated by seeing talented businesses held back by outdated technology, they built ZENTRA from the ground up to solve a problem they deeply understand.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Slide 9: The Ask -->
+    <section class="slide">
+        <div class="slide-content grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-left fade-in-up">
+                <p class="text-xl font-bold" style="color: var(--cyan);">THE ASK</p>
+                <h2 class="mt-4 text-5xl md:text-6xl font-black font-satoshi">Seeking £75,000 to Accelerate Growth.</h2>
+                <p class="mt-6 text-lg text-gray-300">
+                    We have a working product, a clear brand, and a validated market. We are now seeking pre-seed investment to capture the market and scale our operations.
+                </p>
+            </div>
+            <div class="fade-in-up delay-200">
+                 <div class="p-8 bg-gray-800/50 border border-gray-700 rounded-lg space-y-4 animated-bar-chart">
+                    <div>
+                        <p class="font-bold">60% Product Development (£45k)</p>
+                        <div class="w-full bg-gray-700 rounded-full h-4 mt-1"><div class="bar bg-zentra-pink h-4 rounded-full" style="width: 60%; transition-delay: 0.2s;"></div></div>
+                    </div>
+                    <div>
+                        <p class="font-bold">30% Marketing & Sales (£22.5k)</p>
+                        <div class="w-full bg-gray-700 rounded-full h-4 mt-1"><div class="bar bg-zentra-cyan h-4 rounded-full" style="width: 30%; transition-delay: 0.4s;"></div></div>
+                    </div>
+                    <div>
+                        <p class="font-bold">10% Operational Costs (£7.5k)</p>
+                        <div class="w-full bg-gray-700 rounded-full h-4 mt-1"><div class="bar bg-zentra-green h-4 rounded-full" style="width: 10%; transition-delay: 0.6s;"></div></div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Slide 10: Contact -->
+    <section class="slide">
+        <div class="text-center">
+            <svg width="150" height="40" viewBox="0 0 250 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-4 fade-in-up">
+              <text x="80" y="42" font-family="Satoshi, sans-serif" font-size="40" font-weight="bold" fill="#F5F5F5">ZENTRA</text>
+              <path d="M54.33 5.04C38.73 6.24 24.83 16.34 19.13 30.64C13.43 44.94 16.53 61.04 27.33 70.94" stroke="url(#g)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" transform="scale(0.8) translate(0, -10)"/>
+              <path d="M30 38L42 50L64 28" stroke="#FF00B8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" transform="scale(0.8) translate(0, -10)"/>
+            </svg>
+            <h2 class="mt-4 text-5xl md:text-7xl font-black font-satoshi fade-in-up delay-200">Let's build the future.</h2>
+            <p class="mt-6 text-xl text-gray-300 fade-in-up delay-400">Max Edwards | max@zentra.uk | 07784980500</p>
+            <p class="mt-2 text-lg text-zentra-cyan font-bold fade-in-up delay-600">www.zentra.uk</p>
+        </div>
+    </section>
+
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prev-slide');
+        const nextBtn = document.getElementById('next-slide');
+        const progressBar = document.getElementById('progress-bar');
+        
+        let currentSlide = 0;
+
+        function animateStat(el) {
+            const target = +el.dataset.target;
+            el.innerText = '0';
+            let current = 0;
+            const duration = 1000;
+            const stepTime = 20;
+            const steps = duration / stepTime;
+            const increment = target / steps;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    clearInterval(timer);
+                    el.innerText = target;
+                } else {
+                    el.innerText = Math.ceil(current);
+                }
+            }, stepTime);
+        }
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                    // Trigger animations on active slide
+                    const stats = slide.querySelectorAll('.stat-number');
+                    stats.forEach(stat => animateStat(stat));
+                }
+            });
+            const progress = ((index + 1) / slides.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
